@@ -14,7 +14,7 @@ pipeline {
               sh "mvn clean install"
             }
         }
-        stage("deploy"){
+        stage("deploy to tocat"){
             steps{
               sshagent(['deploy_user']) {
                  sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@3.83.251.66:/opt/tomcat/webapps"
